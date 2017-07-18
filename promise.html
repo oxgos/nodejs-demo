@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.ball {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+		.ball1 {
+			background-color: yellow;
+		}
+		.ball2 {
+			background-color: red;
+		}
+		.ball3 {
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="ball ball1" style="margin-left: 0"></div>
+	<div class="ball ball2" style="margin-left: 0"></div>
+	<div class="ball ball3" style="margin-left: 0"></div>
+
+	<script src="promise.js"></script>
+	<script>
+		var ball1 = document.getElementsByClassName("ball1")[0];
+		var ball2 = document.getElementsByClassName("ball2")[0];
+		var ball3 = document.getElementsByClassName("ball3")[0];
+
+		move(ball1, 300)
+			.then(function() {
+				return move(ball2, 200);
+			})
+			.then(function() {
+				return move(ball3, 250);
+			})
+			.then(function() {
+				return move(ball1, 50);
+			})
+			.then(function() {
+				return move(ball2, 50);
+			})
+			.then(function() {
+				return move(ball3, 50);
+			});
+	</script>
+</body>
+</html>
